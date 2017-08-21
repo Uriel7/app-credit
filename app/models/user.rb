@@ -19,7 +19,7 @@ class User < ApplicationRecord
       profile.second_name = auth.info.first_name.split(' ').last
       profile.first_last_name = auth.info.last_name.split(' ').first
       profile.second_last_name = auth.info.last_name.split(' ').last
-      profile.birth_date = Date.strptime(auth.extra.raw_info.birthday,'%m/%d/%Y')
+      profile.birth_date = Date.strptime(auth.extra.raw_info.birthday,'%m/%d/%Y') if auth.extra.raw_info.birthday?
       profile.gender = auth.extra.raw_info.gender
     end
     p.save
