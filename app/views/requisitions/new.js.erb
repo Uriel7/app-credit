@@ -1,0 +1,119 @@
+// Dialog setup
+dialog_form = $("<%= j render 'form' %>").dialog({
+  autoOpen: false,
+  width: 520,
+  modal: true,
+  close: function(){ dialog_form.dialog("destroy") },
+});
+
+$("#dialog-form .btn-cancel").click(function(){
+  dialog_form.dialog("close");
+  return false;
+});
+
+// Client side view update
+$("#dialog-form form").on("ajax:success", function(e, xhr, status, error){
+  dialog_form.dialog("close");
+});
+
+// Client side validation
+$("#dialog-form form").on("ajax:before", function(e, xhr, status, error){
+  f = $(e.currentTarget);
+
+  // Validate Financial
+  financial_attributes = ['requested_amount', 'payment_terms', 'income', 'bank', 'comment'];
+  attributes_numbers = ['requested_amount', 'income', 'company_years', 'address_years', 'dependents_number']
+
+  // Validate Numbers
+  // for (i = 0; i < attributes_numbers.length; i++) {
+  //   if(isNumber(attribute_value(attributes_numbers[i]))){
+  //     $('#'+attributes_numbers[i]+'_error').html('Favor de introducir un número.');
+  //     return false;
+  //   }
+  // }
+
+  for (i = 0; i < financial_attributes.length; i++) {
+    if(attribute_value(financial_attributes[i]) === ''){
+      $('#'+financial_attributes[i]+'_error').html('Es obligatorio');
+      return false;
+    }
+  }
+
+  // Validate Job
+  job_attributes = ['company_name', 'company_position', 'company_phone_number', 'company_years'];
+
+  for (i = 0; i < job_attributes.length; i++) {
+    if(attribute_value(job_attributes[i]) === ''){
+      $('#'+job_attributes[i]+'_error').html('Es obligatorio');
+      return false;
+    }
+  }
+
+  // Validate Personal
+  personal_attributes = ['address_years', 'marital_status', 'dependents_number', 'has_sgmm', 'has_imss', 'has_car'];
+  for (i = 0; i < personal_attributes.length; i++) {
+    if(attribute_value(personal_attributes[i]) === ''){
+      $('#'+personal_attributes[i]+'_error').html('Es obligatorio');
+      return false;
+    }
+  }
+
+  // Validate Personal References
+  personal_references = ['first_name', 'second_name', 'first_last_name', 'second_last_name', 'cell_phone_number'];
+    for (i = 0; i < personal_references.length; i++) {
+      if(attribute_value_personal_reference(personal_references[i]) === ''){
+        $('#'+personal_references[i]+'_error').html('Es obligatorio');
+        return false;
+      }
+    }
+
+    for (i = 0; i < personal_references.length; i++) {
+      if(attribute_value_personal_reference_1(personal_references[i]) === ''){
+      $('#'+personal_references[i]+'_error').html('Es obligatorio');
+      return false;
+      }
+    }
+
+    for (i = 0; i < personal_references.length; i++) {
+      if(attribute_value_personal_reference_2(personal_references[i]) === ''){
+      $('#'+personal_references[i]+'_error').html('Es obligatorio');
+      return false;
+    }
+}
+
+});
+
+// Client side error handling
+$("#dialog-form form").on("ajax:error", function(e, xhr, status, error){
+  alert("Error al registrar datos");
+});
+
+// Finally, open the dialog
+dialog_form.dialog("open");
+
+
+
+function attribute_value(attribute){
+ return f.find('#requisition_'+attribute).val();
+}
+
+// Validate Number
+
+// function isNumber(n) {
+//   return !isNaN(parseFloat(n)) && isFinite(n);
+// }
+
+// to PersonalReferences
+function attribute_value_personal_reference(attribute){
+  return f.find('#requisition_personal_references_attributes_0_'+attribute).val();
+}
+
+// to PersonalReferences
+function attribute_value_personal_reference_1(attribute){
+  return f.find('#requisition_personal_references_attributes_1_'+attribute).val();
+}
+
+// to PersonalReferences
+function attribute_value_personal_reference_2(attribute){
+  return f.find('#requisition_personal_references_attributes_2_'+attribute).val();
+}

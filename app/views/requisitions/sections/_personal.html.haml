@@ -1,0 +1,27 @@
+.row
+  .col-xs-6
+    .form-group
+      = f.label :address_years
+      = f.number_field :address_years, class: "form-control", placeholder: "Años viviendo en la dirección", min: 1
+      %span.help-block.with-errors#address_years_error
+    .form-group
+      = f.label :marital_status
+      = f.select(:marital_status, options_for_select(marital_status_select_options, f.object.marital_status || ''),{prompt: 'Seleccionar'}, { 'data-width': '100%', class: 'form-control'})
+      %span.help-block.with-errors#marital_status_error
+    .form-group
+      = f.label :dependents_number
+      = f.number_field :dependents_number, class: "form-control", placeholder: "Número de dependientes", min: 0
+      %span.help-block.with-errors#dependents_number_error
+  .col-xs-4
+    .form-group
+      = f.label :has_sgmm
+      = f.select(:has_sgmm, options_for_select(has_select_options, object_has(f.object.has_sgmm)),{prompt: 'Seleccionar'}, { 'data-width': '100%', class: 'form-control'})
+      %span.help-block.with-errors#has_sgmm_error
+    .form-group
+      = f.label :has_imss
+      = f.select(:has_imss, options_for_select(has_select_options, object_has(f.object.has_imss)),{prompt: 'Seleccionar'}, { 'data-width': '100%', class: 'form-control'})
+      %span.help-block.with-errors#has_imss_error
+    .form-group
+      = f.label :has_car
+      = f.select(:has_car, options_for_select(has_select_options, object_has(f.object.has_car)),{prompt: 'Seleccionar'}, { 'data-width': '100%', class: 'form-control'})
+      %span.help-block.with-errors#has_car_error

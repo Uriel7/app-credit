@@ -1,0 +1,52 @@
+es-MX:
+  activerecord:
+    models:
+      #p
+      personal_reference: 'Referencia Personal'
+      profile: 'Perfil'
+      #r
+      requisition: 'Solicitud de Credito'
+      #u
+      user: 'Usuario'
+    attributes:
+      #p
+      personal_reference:
+        first_name: 'Primer Nombre'
+        second_name: 'Segundo Nombre'
+        first_last_name: 'Primer Apellido'
+        second_last_name: 'Segundo Apellido'
+        cell_phone_number: 'Teléfono Celular'
+        requisition_id: 'Solicitud de Credito'
+      profile:
+        first_name: 'Primer Nombre'
+        second_name: 'Segundo Nombre'
+        first_last_name: 'Primer Apellido'
+        second_last_name: 'Segundo Apellido'
+        birth_date: 'Fecha de Nacimiento'
+        curp: 'CURP'
+        rfc: 'RFC'
+        gender: 'Genero'
+        birth_state: 'Estado de Nacimiento'
+        phone_number: 'Número de Teléfono'
+        user_id: 'Usuario'
+      #r
+      requisition:
+        income: 'Ingreso'
+        address_years: 'Años viviendo en la dirección'
+        company_years: 'Años laborando en la empresa'
+        marital_status: 'Estado Civil'
+        requested_amount: 'Monto Solicitado'
+        payment_terms: 'Terminos de Pago'
+        bank: 'Banco'
+        comment: 'Comentario'
+        company_name: 'Nombre de la Empresa'
+        company_phone_number: 'Número de teléfono de la empresa'
+        dependents_number: 'Número de dependientes'
+        company_position: 'Puesto en la empresa'
+        has_sgmm: 'Seguro de gastos medicos mayores'
+        has_imss: 'IMSS'
+        has_car: 'Carro'
+        user_id: 'Usuario'
+      #u
+      user:
+        name: 'Nombre'

@@ -1,0 +1,11 @@
+dialog_show = $("<%= j render 'show' %>").dialog({
+  autoOpen: false,
+  modal: true,
+});
+
+$('#dialog-show .btn-cancel').click(function(){
+  dialog_show.dialog('close');
+  return false;
+});
+
+dialog_show.dialog('open');

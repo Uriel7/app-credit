@@ -1,0 +1,10 @@
+#dialog-show.modal.inmodal
+  .modal-dialog
+    .modal-content
+      .modal-header
+        %h4= @personal_reference.complete_name
+      .modal-body
+        %label Teléfono celular:
+        = @personal_reference.cell_phone_number
+      .modal-footer
+        = link_to "Cerrar", "#", class: "btn btn-danger btn-cancel"

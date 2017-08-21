@@ -1,0 +1,43 @@
+#dialog-form.inmodal
+  = form_for setup_requisition(@requisition), remote: true do |f|
+    .modal-dialog
+      .modal-content
+        .modal-header
+          %h4
+        .modal-body
+          #accordion.panel-group
+            .panel.panel-default
+              .panel-heading
+                %h4.panel-title
+                  %a.accordion-toggle{'data-parent': '#accordion', 'data-toggle': 'collapse', href: '#financial'}
+                    Información Financiera
+              #financial.panel-collapse.collapse.in
+                .panel-body
+                  = render 'requisitions/sections/financial', f: f
+            .panel.panel-default
+              .panel-heading
+                %h4.panel-title
+                  %a.accordion-toggle{'data-parent': '#accordion', 'data-toggle': 'collapse', href: '#job'}
+                    Información Laboral
+              #job.panel-collapse.collapse
+                .panel-body
+                  = render 'requisitions/sections/job', f: f
+            .panel.panel-default
+              .panel-heading
+                %h4.panel-title
+                  %a.accordion-toggle{'data-parent': '#accordion', 'data-toggle': 'collapse', href: '#personal'}
+                    Información Personal
+              #personal.panel-collapse.collapse
+                .panel-body
+                  = render 'requisitions/sections/personal', f: f
+            .panel.panel-default
+              .panel-heading
+                %h4.panel-title
+                  %a.accordion-toggle{'data-parent': '#accordion', 'data-toggle': 'collapse', href: '#personal_references'}
+                    Referencias Personales
+              #personal_references.panel-collapse.collapse
+                .panel-body
+                  = render 'requisitions/sections/personal_references', f: f
+          .modal-footer
+            %button{type:'submit', class: 'btn btn-success'} Guardar
+            %button.btn.btn-default.btn-cancel.pull-left{'data-dismiss': 'modal', type: 'button'} Cerrar

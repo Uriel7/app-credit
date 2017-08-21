@@ -1,0 +1,59 @@
+#dialog-show.modal.inmodal
+  .modal-dialog
+    .modal-content
+      .modal-header
+        %h4
+          Monto Solicitado: $
+          = @requisition.requested_amount
+      .modal-body
+        .row
+          %h3 Información Financiera
+          .col-xs-4
+            =label(:requisition, :income)
+            = @requisition.income
+            %p
+            =label(:requisition, :bank)
+            = @requisition.bank
+          .col-xs-5
+            =label(:requisition, :payment_terms)
+            = "#{@requisition.payment_terms} Meses"
+            %p
+            =label(:requisition, :comment)
+            = @requisition.comment
+        .row
+          %h3 Información Laboral
+          .col-xs-4
+            =label(:requisition, :company_name)
+            = @requisition.company_name
+            %p
+            =label(:requisition, :company_phone_number)
+            = @requisition.company_phone_number
+          .col-xs-5
+            =label(:requisition, :company_position)
+            = @requisition.company_position
+            %p
+            =label(:requisition, :company_years)
+            = @requisition.company_years
+        .row
+          %h3 Información Personal
+          .col-xs-4
+            =label(:requisition, :address_years)
+            = @requisition.address_years
+            %p
+            =label(:requisition, :marital_status)
+            = @requisition.marital_status
+            %p
+            =label(:requisition, :dependents_number)
+            = @requisition.dependents_number
+          .col-xs-4
+            =label(:requisition, :has_sgmm)
+            = "#{@requisition.has_sgmm ? 'Si': 'No'}"
+            %p
+            =label(:requisition, :has_imss)
+            = "#{@requisition.has_imss ? 'Si' : 'No'}"
+            %p
+            =label(:requisition, :has_car)
+            = "#{@requisition.has_car ? 'Si' : 'No'}"
+      .modal-footer
+        = link_to 'Cerrar', "#", class: "btn btn-danger"
+

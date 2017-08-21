@@ -1,0 +1,13 @@
+%tr[requisition]
+  %td= requisition.requested_amount
+  %td= requisition.income
+  %td= requisition.bank
+  %td= requisition.comment
+  %td
+    - requisition.personal_references.each do |reference|
+      %li= link_to reference.complete_name, personal_reference_path(reference.id), remote: true, title: 'Ver Referencia Personal'
+  %td
+    = link_to edit_requisition_path(requisition), remote: true, title: 'Editar Solicitud' do
+      %i.fa.fa-pencil
+    = link_to requisition_path(requisition), remote: true, title: 'Ver Solicitud' do
+      %i.fa.fa-file-text

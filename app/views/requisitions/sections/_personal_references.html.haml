@@ -1,0 +1,25 @@
+.row
+  = f.fields_for :personal_references do |ff|
+    .col-xs-4
+      %h6 Referencia Personal:
+      %span.help-block.with-errors#personal_reference_error
+      .form-group
+        = ff.label :first_name
+        = ff.text_field :first_name, class: "form-control", placeholder: 'Primer Nombre'
+        %span.help-block.with-errors#first_name_error
+      .form-group
+        = ff.label :second_name
+        = ff.text_field :second_name, class: "form-control", placeholder: 'Segundo Nombre'
+        %span.help-block.with-errors#second_name_error
+      .form-group
+        = ff.label :first_last_name
+        = ff.text_field :first_last_name, class: "form-control", placeholder: 'Primer Apellido'
+        %span.help-block.with-errors#first_last_name_error
+      .form-group
+        = ff.label :second_last_name
+        = ff.text_field :second_last_name, class: "form-control", placeholder: 'Segundo Apellido'
+        %span.help-block.with-errors#second_last_name_error
+      .form-group
+        = ff.label :cell_phone_number
+        = ff.text_field :cell_phone_number, class: "form-control", placeholder: 'Núm. Celular'
+        %span.help-block.with-errors#cell_phone_number_error

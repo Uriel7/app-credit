@@ -1,0 +1,19 @@
+.row
+  .col-xs-5
+    .form-group
+      = f.label :company_name
+      = f.text_field :company_name, class: "form-control", placeholder: "Nombre de empresa"
+      %span.help-block.with-errors#company_name_error
+    .form-group
+      = f.label :company_position
+      = f.text_field :company_position, class: "form-control", placeholder: "Posición en la empresa"
+      %span.help-block.with-errors#company_position_error
+  .col-xs-5
+    .form-group
+      = f.label :company_phone_number
+      = f.text_field :company_phone_number, class: "form-control", placeholder: "Núm. de tel. de la empresa"
+      %span.help-block.with-errors#company_phone_number_error
+    .form-group
+      = f.label :company_years
+      = f.number_field :company_years, class: "form-control", placeholder: "Años en la empresa", min: 1
+      %span.help-block.with-errors#company_years_error

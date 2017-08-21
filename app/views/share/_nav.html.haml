@@ -1,0 +1,29 @@
+%nav.navbar.navbar-default
+  .container-fluid
+    .navbar-header
+      %button.navbar-toggle.collapsed{"aria-expanded" => "false", "data-target" => "#bs-example-navbar-collapse-1", "data-toggle" => "collapse", :type => "button"}
+        %span.sr-only Toggle navigation
+        %span.icon-bar
+        %span.icon-bar
+        %span.icon-bar
+      = link_to 'App-Credit', '#', class: 'navbar-brand'
+    #bs-example-navbar-collapse-1.collapse.navbar-collapse
+      %ul.nav.navbar-nav
+        %li{class: active_class(requisitions_path)}
+          = link_to requisitions_path do
+            Solicitudes de credito
+            %span.sr-only (current)
+      %ul.nav.navbar-nav.navbar-right
+        %li.dropdown{:role => "presentation"}
+          %a.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
+            Bienvenido
+            = succeed "!" do
+              %strong= current_user.name
+            %span.caret
+          %ul.dropdown-menu
+            %li{class: active_class(edit_profile_path(current_user.id))}
+              = link_to edit_profile_path(current_user.id) do
+                Perfil
+                %span.sr-only (current)
+            %li
+              = link_to "Cerrar Sesión", signout_path, id: "sign_out"

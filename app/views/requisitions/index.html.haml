@@ -1,0 +1,26 @@
+.row
+  .col-lg-12
+    -if !current_user.profile.is_completed?
+      %h4.pull-right
+        %span.help-block.with-errors
+          Completa tu perfil para poder realizar una solicitud.
+    .margin-tb
+      %h3
+        Solicitudes de credito
+      - if current_user.profile.is_completed?
+        .pull-right
+          = link_to new_requisition_path, remote: true, class: 'btn btn-success' do
+            %i.fa.fa-plus
+            Crear Solicitud
+
+    %table.table.table-hover#requisitions
+      %thead
+        %tr
+          %th Monto Solicitado
+          %th Ingreso
+          %th Banco
+          %th Comentarios
+          %th Referencias
+          %th Acciones
+      %tbody
+        = render @requisitions

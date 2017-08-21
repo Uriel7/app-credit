@@ -1,0 +1,13 @@
+.row
+  .col-md-6.col-md-offset-3
+    .panel.panel-login
+      .panel-heading
+        .row
+          .col-xs-6
+            %h2 App Credit
+        %hr
+      .panel-body
+        .row
+          .col-lg-12
+            #login-form{:style => "display: block;"}
+            = link_to "Iniciar sesión con Facebook", "/auth/facebook", id: "sign_in", class: 'btn-fblogin btn btn-primary'

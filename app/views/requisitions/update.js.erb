@@ -1,0 +1,3 @@
+$("<%= j render @requisition %>")
+.replaceAll("#requisition_<%= @requisition.id %>")
+.effect('highlight', null, 2000);

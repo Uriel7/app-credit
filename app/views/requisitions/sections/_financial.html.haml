@@ -1,0 +1,23 @@
+.row
+  .col-xs-5
+    .form-group
+      = f.label :requested_amount
+      = f.number_field :requested_amount, class: "form-control", placeholder: 'Desde 5,000', step: '1', min: 5_000
+      %span.help-block.with-errors#requested_amount_error
+    .form-group
+      = f.label :payment_terms
+      = f.select(:payment_terms, options_for_select(payment_terms_select_options, f.object.payment_terms || ''),{prompt: 'Seleccionar'}, { 'data-width': "100%", class: "form-control"})
+      %span.help-block.with-errors#payment_terms_error
+    .form-group
+      = f.label :income
+      = f.number_field :income, class: "form-control", placeholder: "Ingreso", step: '0.1', min: 1
+      %span.help-block.with-errors#income_error
+  .col-xs-5
+    .form-group
+      = f.label :bank
+      = f.select(:bank, options_for_select(bank_select_options, f.object.bank || ''),{prompt: 'Seleccionar'}, { 'data-width': '100%', class: 'form-control'})
+      %span.help-block.with-errors#bank_error
+    .form-group
+      = f.label :comment
+      = f.text_area :comment, class: "form-control", placeholder: "Comentario..."
+      %span.help-block.with-errors#comment_error
